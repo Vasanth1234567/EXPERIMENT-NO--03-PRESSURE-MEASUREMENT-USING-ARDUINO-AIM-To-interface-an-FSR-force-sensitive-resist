@@ -76,9 +76,69 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 ### PROGRAM 
- *your roll no 
- * your name 
- * department and year 
+```
+int ledPin1=2;
+int ledPin2=3;
+int ledPin3=4;
+int ledPin4=5;
+int ledPin5=6;
+int ledPin6=7;
+int fsrRead;
+float newton;
+void setup(){
+  pinMode(ledPin1,OUTPUT);
+  pinMode(ledPin2,OUTPUT);
+  pinMode(ledPin3,OUTPUT);
+  pinMode(ledPin4,OUTPUT);
+  pinMode(ledPin5,OUTPUT);
+  pinMode(ledPin6,OUTPUT);
+  Serial.begin(9600);
+}
+void loop(){
+  fsrRead=analogRead(A0);
+  newton=(fsrRead*10)/914;
+  Serial.println(newton);
+  if(newton>2)
+    digitalWrite(ledPin1,HIGH);
+  else
+    digitalWrite(ledPin1,LOW);
+  if(newton>4)
+    digitalWrite(ledPin2,HIGH);
+  else
+    digitalWrite(ledPin2,LOW);
+  if(newton>6)
+    digitalWrite(ledPin3,HIGH);
+  else
+    digitalWrite(ledPin3,LOW);
+  if(newton>7)
+    digitalWrite(ledPin4,HIGH);
+  else
+    digitalWrite(ledPin4,LOW);
+  if(newton>8)
+    digitalWrite(ledPin5,HIGH);
+  else
+    digitalWrite(ledPin5,LOW);
+  if(newton>=10)
+    digitalWrite(ledPin6,HIGH);
+  else
+    digitalWrite(ledPin6,LOW);
+}
+```
+ 
+ Before Stimulation :
+ 
+ ![Screenshot (77)](https://user-images.githubusercontent.com/86919099/236830878-2197a014-7ece-484a-99a6-47c51527d3f2.png)
+
+ After Stimulation :
+
+ ![Screenshot (78)](https://user-images.githubusercontent.com/86919099/236830977-aba1786c-2844-4a5f-b19d-bec86ef12675.png)
+ 
+ Code with Serial Monitor :
+ 
+ ![Screenshot (80)](https://user-images.githubusercontent.com/86919099/236831536-3c9dc083-4d69-4547-8f2c-d1d52cff0a68.png)
+
+ 
+
  
  
  
@@ -93,40 +153,5 @@ The easiest way to measure a resistive sensor is to connect one end to power and
  
  
  
- 
-
-![image](https://user-images.githubusercontent.com/36288975/188804653-a3154e8e-2655-46f2-9dcd-f425dd1ba109.png)
-
-
-### TABLE -02 standard deviation table 
-### Population Standard Deviation
-The population standard deviation, the standard definition of σ, is used when an entire population can be measured, and is the square root of the variance of a given data set. In cases where every member of a population can be sampled, the following equation can be used to find the standard deviation of the entire population:
-
-
-
-Where
-xi is an individual value
-μ is the mean/expected value
-N is the total number of values
-
-For those unfamiliar with summation notation, the equation above may seem daunting, but when addressed through its individual components, this summation is not particularly complicated. The i=1 in the summation indicates the starting index, i.e. for the data set 1, 3, 4, 7, 8, i=1 would be 1, i=2 would be 3, and so on. Hence the summation notation simply means to perform the operation of (xi - μ)2 on each value through N, which in this case is 5 since there are 5 values in this data set.
-
-EX:           μ = (1+3+4+7+8) / 5 = 4.6        
-σ = √[(1 - 4.6)2 + (3 - 4.6)2 + ... + (8 - 4.6)2)]/5
-σ = √(12.96 + 2.56 + 0.36 + 5.76 + 11.56)/5 = 2.577
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ### RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
